@@ -1,5 +1,22 @@
 # Example Project from [Create a dApp on Avalanche's Fuji Testnet with QuickNode](https://ajcwebdev.com/2022/06/02/how-to-create-a-dapp-on-avalanches-fuji-testnet-with-quicknode/)
 
+## Outline
+
+- Introduction
+- Configure MetaMask Wallet for Avalanche
+  - Add Avalanche Network
+  - Fuji Testnet Faucet
+  - Hello World Solidity Contract
+  - Deployment Script
+  - Hardhat Configuration
+- Deploy Avalanche Node on QuickNode
+  - Create an Endpoint
+  - Deploy Contract to Fuji
+- React App
+  - Start Development Server
+  - Deploy to Netlify
+- Resources
+
 ## Introduction
 
 [Avalanche](https://www.avax.network/) is an open-source, proof-of-stake blockchain with smart contract functionality that uses the Snow family of consensus protocols. Avalanche features [3 built-in blockchains](https://docs.avax.network/overview/getting-started/avalanche-platform) that are validated and secured by the Primary Network:
@@ -7,7 +24,7 @@
 * [Platform Chain (P-Chain)](https://docs.avax.network/overview/getting-started/avalanche-platform/#platform-chain-p-chain) - Metadata blockchain on Avalanche that coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the [Snowman consensus protocol](https://docs.avax.network/#snowman-consensus-protocol).
 * [Contract Chain (C-Chain)](https://docs.avax.network/overview/getting-started/avalanche-platform/#contract-chain-c-chain) - Allows for the creation smart contracts using the [C-Chain’s API](https://docs.avax.network/apis/avalanchego/apis/c-chain).
 
-![00-avalanche-primary-network-diagram.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652371334021/gR7DyKNei.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652371334021/gR7DyKNei.png" alt="00-avalanche-primary-network-diagram.png" width="500" /></p>
 
 ## Configure MetaMask Wallet for Avalanche
 
@@ -17,7 +34,7 @@ You can create an Avalanche Wallet online at [wallet.avax.network](https://walle
 
 Open MetaMask and check the available networks. If you just installed the extension, you will only see Ethereum Mainnet.
 
-![01-add-network-to-metamask-wallet.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652248053481/cHgfEK9rY.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652248053481/cHgfEK9rY.png" alt="01-add-network-to-metamask-wallet.png" width="500" /></p>
 
 Click "Add Network" to configure MetaMask for the Avalanche network and include the following information for the Fuji Testnet:
 
@@ -27,7 +44,7 @@ Click "Add Network" to configure MetaMask for the Avalanche network and include 
 * Symbol: AVAX
 * Explorer: `https://testnet.snowtrace.io/`
 
-![02-fuji-network.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652336836652/vuLG_dDSy.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652336836652/vuLG_dDSy.png" alt="02-fuji-network.png" width="500" /></p>
 
 Also include the information for Mainnet:
 
@@ -39,17 +56,17 @@ Also include the information for Mainnet:
 
 You will now see the Avalanche logo and "Avalanche FUJI C-Chain" written at the top.
 
-![03-metamask-configured-for-avalanche.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652248101306/yPTchExNy.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652248101306/yPTchExNy.png" alt="03-metamask-configured-for-avalanche.png" width="500" /></p>
 
 ### Fuji Testnet Faucet
 
 To interact with Fuji, we need to have AVAX in your wallet. Like the Ropsten faucet on Ethereum, Avalanche has the [Fuji Testnet Faucet](https://faucet.avax-test.network/). Include your wallet address and click "Request 10 AVAX."
 
-![04-fuji-testnet-faucet.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652248145323/ZJZukmVNw.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652248145323/ZJZukmVNw.png" alt="04-fuji-testnet-faucet.png" width="500" /></p>
 
 Return to your wallet and you should now have 10 AVAX.
 
-![05-avalanche-wallet-with-avax-funds.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652248458101/bPjYvPSno.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652248458101/bPjYvPSno.png" alt="05-avalanche-wallet-with-avax-funds.png" width="500" /></p>
 
 ### Hello World Solidity Contract
 
@@ -142,19 +159,19 @@ First you will need to create an account on QuickNode by [filling in the form on
 
 After creating an account, you will see the following screen.
 
-![06-create-an-endpoint-on-quicknode.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652250042612/zN6MfjTcW.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652250042612/zN6MfjTcW.png" alt="06-create-an-endpoint-on-quicknode.png" width="500" /></p>
 
 Click the "Create an endpoint" button to see the available blockchains.
 
-![07-choose-a-chain-and-network.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652250176774/mzXz9SRZc.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652250176774/mzXz9SRZc.png" alt="07-choose-a-chain-and-network.png" width="500" /></p>
 
 After selecting Avalanche you will be asked whether you want a node on Mainnet or the Fuji Testnet. Select Fuji.
 
-![08-select-your-avalanche-network.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652250226185/bPVQkxHnd.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652250226185/bPVQkxHnd.png" alt="08-select-your-avalanche-network.png" width="500" /></p>
 
 You'll be asked if you want any of the add-ons including Archive Mode or Trace Mode. You'll then be asked for your credit card information but you will not be charged for the first seven days.
 
-![09-avalanche-endpoint-on-quicknode.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652250296162/1i9j5398_.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652250296162/1i9j5398_.png" alt="09-avalanche-endpoint-on-quicknode.png" width="500" /></p>
 
 Copy the HTTP provider URL and paste it into your `.env` file. Include `/ext/bc/C/rpc` at the very end of the URL to specify that you want to connect to the C-Chain, an instance of the Ethereum Virtual Machine that allows for creating smart contracts with the C-Chain’s API.
 
@@ -181,7 +198,7 @@ Contract deployed by "<SignerWithAddress 0x6b492Ef06CA3b462f20db50EB288fAbB1E3e8
 
 Go to [Snowtrace Testnet](https://testnet.snowtrace.io/) and search for your contract address.
 
-![10-contract-on-snowtrace.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652250728271/wI7umL3qQ.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652250728271/wI7umL3qQ.png" alt="10-contract-on-snowtrace.png" width="500" /></p>
 
 Include the contract address in `.env` so it can be accessed from our frontend client in the next section.
 
@@ -273,11 +290,11 @@ yarn dev
 
 Open [localhost:3000](http://localhost:3000/) to see the application. When you enter a new hello message and click the "Set hello message" button, you will be asked to confirm the transaction from your MetaMask wallet.
 
-![13-confirm-transaction-with-metamask.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652374063148/4fPNMkvJ4.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652374063148/4fPNMkvJ4.png" alt="13-confirm-transaction-with-metamask.png" width="500" /></p>
 
 After confirming the transaction, it will be pending for a few seconds. Once the transaction settles you will see the new message logged to the console.
 
-![14-new-greeting-displayed-in-the-console.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652374126339/kI04pabHZ.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652374126339/kI04pabHZ.png" alt="14-new-greeting-displayed-in-the-console.png" width="500" /></p>
 
 ### Deploy to Netlify
 
@@ -291,15 +308,15 @@ Our hello world application is complete and we can deploy it to the internet wit
 
 Initialize a Git repository and push the project to a GitHub repo. Go to your Netlify dashboard, click "Add new site," and select the newly created repo.
 
-![15-import-project-from-git-repository-on-netlify.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652374504739/ueqhFEwpG.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652374504739/ueqhFEwpG.png" alt="15-import-project-from-git-repository-on-netlify.png" width="500" /></p>
 
 Your build settings will be imported from the `netlify.toml` file. The only other information you need to include is your contract address under "Advanced build settings." Lastly, click "Deploy site."
 
-![16-include-environment-variable-for-contract-address-on-netlify.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652374636506/kcRJ0Mkor.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652374636506/kcRJ0Mkor.png" alt="16-include-environment-variable-for-contract-address-on-netlify.png" width="500" /></p>
 
 Go to "Domain settings" to give your site a custom domain. You can see this example at [ajcwebdev-avalanche.netlify.app](https://ajcwebdev-avalanche.netlify.app/).
 
-![17-deployed-website-on-netlify.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652374868431/DYXiMhe8J.png)
+<p align="center"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1652374868431/DYXiMhe8J.png" alt="17-deployed-website-on-netlify.png" width="500" /></p>
 
 ## Resources
 
